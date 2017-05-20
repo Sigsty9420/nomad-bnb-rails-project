@@ -36,6 +36,7 @@ gem 'sendgrid-rails'
 
 
 gem 'devise'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 
