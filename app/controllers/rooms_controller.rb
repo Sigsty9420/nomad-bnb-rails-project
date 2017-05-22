@@ -12,11 +12,12 @@ class RoomsController < ApplicationController
 
   def new
     @room = current_user.rooms.build
+    @room.build_city
   end
 
   def create
-    @room = current_user.room.build(room_params)
-
+    @room = current_user.rooms.build(room_params)
+    binding.pry
     if @room.save
       redirect_to @room
     else
@@ -43,7 +44,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:property_type, :room_type, :accommodates, :bed_rooms, :bath_rooms, :listing_name, :summary, :address, :price, :active)
+    params.require(:room).permit(:home_type, :room_type, :capacity, :bed_rooms, :bath_rooms, :listing_name, :summary, :address, :price, :active, city_attributes: [:name, :country])
   end
 
   def set_room

@@ -11,4 +11,9 @@ class Room < ApplicationRecord
   validates :summary, presence: true
   validates :address, presence: true
   validates :price, presence: true
+
+  def city_attributes=(city)
+    self.city = City.find_or_create_by(name: city[:name])
+    self.city.update(city)
+  end
 end

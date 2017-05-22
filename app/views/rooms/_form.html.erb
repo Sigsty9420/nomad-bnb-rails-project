@@ -11,7 +11,7 @@
           <div class="col-md-4 select nopadding">
             <div class="form-group">
               <label>Property Type</label>
-              <%= f.select :property_type, [["Apartment", "Apartment"], ["House","House"],["Bed & Breakfast","Bed & Breakfast"]], id: "property_type", prompt: "Select", class: "form-control" %>
+              <%= f.select :home_type, [["Apartment", "Apartment"], ["House","House"],["Bed & Breakfast","Bed & Breakfast"]], id: "home_type", prompt: "Select", class: "form-control" %>
             </div>
           </div>
 
@@ -25,7 +25,7 @@
           <div class="col-md-4 select">
             <div class="form-group">
               <label>Accommodates</label>
-              <%= f.select :accommodates, [["1 guest", 1], ["2 guests", 2], ["3 guests", 3], ["4 guests", 4], ["5 guests", 5], ["6+ guests", 6]], id: "accommodates", prompt: "Select", class: "form-control" %>
+              <%= f.select :capacity, [["1 guest", 1], ["2 guests", 2], ["3 guests", 3], ["4 guests", 4], ["5 guests", 5], ["6+ guests", 6]], id: "capacity", prompt: "Select", class: "form-control" %>
             </div>
           </div>
 
@@ -67,6 +67,37 @@
             <%= f.text_field :address, placeholder: 'What is your address?', class: 'form-control' %>
           </div>
         </div>
+
+        <%= f.fields_for :city do |c| %>
+        <div class="row">
+          <div class="col-md-4 nopadding">
+            <div class="form-group">
+              <label>City</label>
+                <%= c.text_field :name, list: "cities_autocomplete", class: 'form-control' %>
+                <datalist id="cities_autocomplete">
+                  <%= City.all.each do |city| %>
+                    <option value="<%= city.name %>">
+                  <% end %>
+                </datalist>
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-md-4 nopadding">
+            <div class="form-group">
+              <label>Country</label>
+                <%= c.text_field :country, list: "countries_autocomplete", class: 'form-control'%>
+                <datalist id="countries_autocomplete">
+                  <%= City.country_list.each do |country| %>
+                    <option value="<%= country %>">
+                  <% end %>
+                </datalist>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
 
         <div class="row">
           <div class="col-md-4 nopadding">

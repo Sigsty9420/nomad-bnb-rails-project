@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20170522093430) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "property_type"
+    t.string "home_type"
     t.string "room_type"
-    t.integer "accommodates"
+    t.integer "capacity"
     t.integer "bed_rooms"
     t.integer "bath_rooms"
     t.string "listing_name"
