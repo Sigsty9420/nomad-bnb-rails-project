@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  belongs_to :user
+  belongs_to :host, :class_name => "User"
   belongs_to :city
 
   validates :home_type, presence: true
