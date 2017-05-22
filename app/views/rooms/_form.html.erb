@@ -8,7 +8,7 @@
 
         <div class="row">
 
-          <div class="col-md-4 select">
+          <div class="col-md-4 select nopadding">
             <div class="form-group">
               <label>Property Type</label>
               <%= f.select :property_type, [["Apartment", "Apartment"], ["House","House"],["Bed & Breakfast","Bed & Breakfast"]], id: "property_type", prompt: "Select", class: "form-control" %>
@@ -32,7 +32,7 @@
           </div>
 
           <div class="row">
-          <div class="col-md-4 select">
+          <div class="col-md-4 select nopadding">
             <div class="form-group">
               <label>Bedrooms</label>
               <%= f.select :bed_rooms, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], prompt: 'Select', class: 'form-control' %>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 nopadding">
             <div class="form-group">
               <label>Nightly Price</label>
               <div class="input-group">
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="actions">
+        <div class="actions nopadding">
           <%= f.submit "Save", class: "btn btn-primary" %>
         </div>
       <% end %>
