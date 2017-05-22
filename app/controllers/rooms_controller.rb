@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:home_type, :room_type, :capacity, :bed_rooms, :bath_rooms, :listing_name, :summary, :address, :price, :active)
+    params.require(:room).permit(:property_type, :room_type, :accommodates, :bed_rooms, :bath_rooms, :listing_name, :summary, :address, :price, :active)
   end
 
   def set_room
