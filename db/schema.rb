@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170522091552) do
     t.string "address"
     t.integer "price"
     t.boolean "active"
+    t.integer "city_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

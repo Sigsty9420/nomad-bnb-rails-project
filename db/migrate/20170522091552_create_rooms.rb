@@ -11,6 +11,7 @@ class CreateRooms < ActiveRecord::Migration[5.1]
       t.string :address
       t.integer :price
       t.boolean :active
+      t.integer :city_id
       t.integer :user_id
 
       t.timestamps
