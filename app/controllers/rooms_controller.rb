@@ -19,10 +19,9 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build(room_params)
     binding.pry
     if @room.save
-      redirect_to @room
+      redirect_to @room, notice: "Room succesfully created."
     else
-      flash[:alert] = "Please provide all information for this room."
-      render :new
+      render :new, alert: "Please provide all information for this room."
     end
   end
 
@@ -32,9 +31,9 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      redirect_to @room
+      redirect_to @room, notice: "Room succesfully updated."
     else
-      render :edit, notice: "Please provide all information for this room."
+      render :edit, alert: "Please provide all information for this room."
     end
   end
 
