@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :room do
-    resources :reservations, only: [:new, :create, :index]
+  resources :rooms do
+    resources :reservations, only: [:new, :create, :index, :show]
   end
 
 end
