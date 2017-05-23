@@ -34,8 +34,7 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       redirect_to @room
     else
-      flash[:alert] = "Please provide all information for this room."
-      render :edit
+      render :edit, notice: "Please provide all information for this room."
     end
   end
 

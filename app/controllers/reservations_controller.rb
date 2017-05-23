@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    @room = Room.find(params[:room_id])
   end
 
   def show
