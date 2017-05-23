@@ -34,6 +34,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'
 gem 'sendgrid-rails'
 gem "figaro"
+gem 'validates_timeliness', '~> 4.0'
 
 gem 'devise'
 

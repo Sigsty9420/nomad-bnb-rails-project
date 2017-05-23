@@ -3,16 +3,21 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @reservation = current_user.reservations.create(reservation_params)
-    redirect_to @reservation.room, notice: "Your reservation has been made!"
+    @reservation = current_user.reservations.new(reservation_params)
+    if @reservation.save
+      redirect_to @reservation.room, notice: "Your reservation has been made!"
+    else
+      redirect_to new_room_reservation_path(@reservation.room)
+    end
   end
 
   def new
     @room = Room.find(params[:room_id])
   end
 
-  def show
-
+  def index
+    @room = Room.find(params[:room_id])
+    @reservations = @room.reservations
   end
 
   private
