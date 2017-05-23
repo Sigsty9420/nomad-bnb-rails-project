@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :reservations
   resources :cities
   resources :rooms
   devise_for :users,
              :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
-                               :registrations => 'registrations'  
+                               :registrations => 'registrations'
                               },
              :path => '',
              :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'}
@@ -13,5 +14,9 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   resources :users, only: [:show]
+
+  resources :room do
+    resources :reservations, only: [:create]
+  end
 
 end

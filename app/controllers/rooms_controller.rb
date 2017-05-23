@@ -21,6 +21,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to @room
     else
+      flash[:alert] = "Please provide all information for this room."
       render :new
     end
   end
@@ -33,12 +34,9 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       redirect_to @room
     else
+      flash[:alert] = "Please provide all information for this room."
       render :edit
     end
-  end
-
-  def destroy
-
   end
 
   private

@@ -15,11 +15,37 @@
 
           <div class="row text-center row-space-1">
             <div class="col-sm-3">
+              <i class="fa fa-home fa-2x"></i>
+            </div>
+            <div class="col-sm-3">
+              <i class="fa fa-users fa-2x"></i>
+            </div>
+            <div class="col-sm-3">
+              <i class="fa fa-bed fa-2x"></i>
+            </div>
+            <div class="col-sm-3">
+              <i class="fa fa-ship fa-2x"></i>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-sm-3">
+              <%= @room.home_type %>
+            </div>
+            <div class="col-sm-3">
+              <%= @room.capacity %> <%= @room.capacity > 1? "Guests" : "Guest" %>
+            </div>
+            <div class="col-sm-3">
+              <%= @room.bed_rooms %> <%= @room.bed_rooms > 1? "Bedrooms" : "Bedroom" %>
+            </div>
+            <div class="col-sm-3">
+              <%= @room.bath_rooms %> <%= @room.bath_rooms > 1? "Bathrooms" : "Bathroom" %>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
 
     </div>
