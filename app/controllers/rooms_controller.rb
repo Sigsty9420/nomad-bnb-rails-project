@@ -17,7 +17,6 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
-    binding.pry
     if @room.save
       redirect_to @room, notice: "Room succesfully created."
     else
